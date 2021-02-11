@@ -36,18 +36,17 @@ namespace TestTaskForIMPROVE
             var random = new Random(DateTime.Now.Millisecond);
             var cache = new HashSet<int>();
             var result = new int[naturalNumber][];
-            var maxLength = 10;     //можно выставить "int.MaxValue" или вовсе убрать
+            var maxLength = 100;    //можно выставить "int.MaxValue" или вовсе убрать
             var maxValue = 1000;    //можно выставить "int.MaxValue" или вовсе убрать
             int arraySize;
 
             for (var arrayIndex = 0; arrayIndex < naturalNumber; arrayIndex++)
             {
-                arraySize = random.Next(0, maxLength);
-
-                while (cache.Contains(arraySize))
+                do
                 {
                     arraySize = random.Next(0, maxLength);
                 }
+                while (cache.Contains(arraySize));
 
                 cache.Add(arraySize);
 
